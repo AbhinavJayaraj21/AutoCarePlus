@@ -74,19 +74,30 @@ WSGI_APPLICATION = 'AutoCarePlus01.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'autocareplus',
+#         'USER': 'root',
+#         'PASSWORD': 'student',
+#         'HOST': '',
+#         'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+#         }
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'autocareplus',
-        'USER': 'root',
-        'PASSWORD': 'student',
-        'HOST': '',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'AutoCare_db',
+         'USER': 'AutoCare_Plus',
+         'PASSWORD': 'Abhinav123',
+         'HOST': 'database-2.cjk2464q2dan.ap-southeast-2.rds.amazonaws.com',
+         'PORT': '3306',
+     }
+  }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
