@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="home.css">
+    <title>AUTOCARE+</title>
+    <link rel="icon" type="image/x-icon" href="D:\Downloads\automotive.png">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+          <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
+        </svg>
+        AUTO CARE+
+      </a>
+
+      <a target="_blank" href="login.html" style="color: whitesmoke;">MY ACCOUNT</a>
+      <a target="_blank" href="login.html" style="color: whitesmoke;">REGISTER STORE</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: whitesmoke;">
+           CAR
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="acesoory.html">Acessory</a></li>
+          <li><a class="dropdown-item" href="parts.html">Parts</a></li>
+          <li><a class="dropdown-item" href="service.html">Services</a></li>
+          <li><a class="dropdown-item" href="others.html">Others</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: whitesmoke;">
+          BIKE
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="bacessory.html">Acessory</a></li>
+          <li><a class="dropdown-item" href="bparts.html">Parts</a></li>
+          <li><a class="dropdown-item" href="bservice.html">Services</a></li>
+          <li><a class="dropdown-item" href="bothers.html">Others</a></li>
+        </ul>
+      </li>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="text-center">
+
+    <h2>ACESSORY SPACE</h2>
+
+    <img src="https://onroadbodyshop.com/images/car-slider.png" class="img-fluid" alt="Responsive image">
+  </div>
+
+  <div class="dropdown-container">
+    <select id="dropdown1" class="dropdown" onchange="updateDropdown2()">
+        <option value="option1">Select Brand</option>
+        <option value="option2">Maruti</option>
+        <option value="option3">Bmw</option>
+        <option value="option3">benz</option>
+        <option value="option3"></option>
+        <option value="option3"></option>
+        <option value="option3"></option>
+    </select>
+
+    <select id="dropdown2" class="dropdown">
+        <!-- Options will be dynamically added here -->
+    </select>
+</div>
+</body>

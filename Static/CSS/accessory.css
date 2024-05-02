@@ -1,0 +1,475 @@
+:root {
+    --primary: #0969DA;
+    --background: #24292F;
+    --gray: #847F90;
+    --white: #FCFCFC;
+    --navbar-height: 50px;
+}
+
+body {
+    font-family: "Red Hat Display",sans-serif;
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu__wrapper {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+    gap: 30px;
+    background-color: var(
+        --background
+    );
+    height: var(--navbar-height);
+    padding: 0px 16px;
+    align-items: center;
+}
+
+.menu__bar {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.logo svg {
+    fill: var(--white);
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    align-items: center;
+    gap: 10px;
+    background-color: var(
+        --background);
+}
+
+.navigation > li {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  height: 42px;
+}
+
+.navigation > li > button > svg {
+    stroke: var(--white);
+    fill: var(--white);
+    color: var(--white);
+    margin-top: -2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigation > li > a {
+    color: var(--white);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navigation > li > button {
+    color: var(--white);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    gap: 4px;
+    opacity: 1;
+    align-items: center;
+    font-size: 16px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    background: none;
+    display: flex;
+    padding: 3px 0;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigation > li > button:hover,
+.navigation > li > a:hover {
+    opacity: 0.75;
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.navigation > li > button:hover > svg {
+    opacity: 0.75;
+    margin-top: 0;
+}
+
+.dropdown {
+    position: absolute;
+    top: 42px;
+    min-width: 240px;
+    border-radius: 8px;
+    background-color: var(--white);
+    display: none;
+    flex-direction: column;
+    padding: 16px;
+    box-shadow: 0 5px 30px
+        rgba(27, 31, 35, 0.1),
+        0 0 1px rgba(27, 31, 35, 0.4),
+        0 1px 2px rgba(27, 31, 35, 0.15);
+    z-index: 2;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.99)
+            translateY(-0.7em);
+        transform-origin: top;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+            translateY(0);
+    }
+}
+
+.dropdown h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.list-menu-items {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.list-menu-items > li > a {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    width: 100%;
+    color: var(--gray);
+    text-decoration: none;
+}
+
+
+.list-menu-items > li > a:hover {
+    color: var(--primary);
+}
+
+.list-items-with-description {
+    list-style-type: none;
+}
+
+.list-items-with-description li {
+    display: flex;
+    padding: 4px;
+    gap: 16px;
+    width: 100%;
+}
+
+.list-items-with-description li:hover {
+    color: var(--primary);
+}
+
+.list-items-with-description li svg {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.list-items-with-description li:hover svg {
+    stroke: var(--primary);
+}
+
+.item-title h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.item-title p {
+    font-size: 12px;
+}
+
+.navigation > li:hover .dropdown {
+    display: flex;
+    opacity: 1;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.action-buttons a {
+    text-decoration: none;
+    font-size: 16px;
+    white-space: nowrap;
+    padding: 4px 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.action-buttons a:hover {
+    opacity: .75;
+    color: aqua;
+}
+
+.secondary {
+    background: none;
+    color: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--white);
+}
+
+.primary {
+    color: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--white);
+}
+
+.burger-menu {
+    display: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.burger-menu svg {
+    stroke: var(--white);
+}
+
+.sidebar__profile {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: row;
+  padding: 0 1rem;
+  color: var(--text-link);
+  overflow-x: hidden;
+  min-height: 2.6125rem;
+}
+
+.avatar__wrapper {
+  position: relative;
+  display: flex;
+}
+
+.avatar {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.avatar__name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  white-space: nowrap;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.user-name {
+  font-weight: 600;
+  text-align: left;
+  color: var(--white);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.email {
+  color: var(--white);
+  font-size: 0.8125rem;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.logout {
+  animation: fadeIn 0.2s ease-in-out;
+  margin-left: auto;
+}
+
+.logout svg {
+  color: lightcoral;
+}
+
+body.collapsed .logout {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+    .hide {
+        display: none;
+    }
+
+    .menu__wrapper {
+        justify-content: space-between;
+    }
+
+    .action-buttons {
+        order: -1;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .burger-menu {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+.nav2 {
+    display: flex;
+    width: 100%;
+    background: #24292F;
+    justify-content: center; /* Horizontally center aligns the items */
+    align-items: center; /* Vertically center aligns the items */
+  }
+.nav2-item dropdown{
+    color: #dddddd;
+}
+
+  .search-container {
+    display: flex;
+    tab-size: 5px;
+  }
+
+  .form-control {
+    margin-right: 10px; /* Adjust this value as needed for spacing */
+  }
+
+
+
+
+
+/* Category Ads */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* Category Ads */
+
+#ads {
+
+    margin: 20px 0 20px 0;
+
+}
+
+#ads .card-notify-badge {
+        position: absolute;
+        left: -10px;
+        top: -20px;
+        background: dodgerblue;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+        color: #000;
+        padding: 5px 10px;
+        font-size: 14px;
+
+    }
+
+#ads .card-notify-year {
+        position: absolute;
+        right: -10px;
+        top: -20px;
+        background: #ff4444;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        width: 50px;
+        height: 50px;
+        padding: 15px 0 0 0;
+}
+
+
+#ads .card-detail-badge {
+        background: deepskyblue;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+        color: #000;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+
+
+#ads .card:hover {
+            background: #fff;
+            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+#ads .card-image-overlay {
+        font-size: 20px;
+
+    }
+
+
+#ads .card-image-overlay span {
+            display: inline-block;
+        }
+
+
+#ads .ad-btn {
+        text-transform: uppercase;
+        width: 150px;
+        height: 40px;
+        border-radius: 80px;
+        font-size: 16px;
+        line-height: 35px;
+        text-align: center;
+        border: 3px solid aqua;
+        display: block;
+        text-decoration: none;
+        margin: 20px auto 1px auto;
+        color: #000;
+        overflow: hidden;
+        position: relative;
+        background-color: deepskyblue;
+    }
+
+#ads .ad-btn:hover {
+            background-color: dodgerblue;
+            color: #1e1717;
+            border: 2px solid aqua;
+            background: transparent;
+            transition: all 0.3s ease;
+            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+        }
+
+#ads .ad-title h3 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: bold;
+        text-decoration: solid black;
+    }

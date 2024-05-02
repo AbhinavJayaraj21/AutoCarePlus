@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Store Registeration</h1>
+        <form action="{% url 'add_store' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="store_name">Store Name:</label>
+            <input type="text" name="store_name" required>
+
+            <label for="store_image">Store Image:</label>
+            <input type="file" name="store_image" accept="image/*">
+
+            <label for="store_registration_id">Store Registration Id:</label>
+            <input type="number" name="Registration_id" step="0.01" min="0" required>
+
+            <label for="store_phone">Store Phone No:</label>
+            <input type="number" name="store_phone" step="0.01" min="0" required>
+
+            <label for="store_email">Store Email:</label>
+            <input type="email" name="email" step="0.01" min="0" required>
+
+            <label for="store_date">Registration Date:</label>
+            <input type="date" name="Registration_date" step="0.01" min="0" required>
+
+            <label for="store_address">Store Address:</label>
+            <input type="text" name="store_address" step="0.01" min="0" required>
+
+            <label for="store_district_id">District:</label>
+            <select name="district" required>
+                <option value="">District </option>
+                {% for x in data %}
+                <option value="{{ x.district_id }}">{{ x.district_name }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Add Store">
+        </form>
+    </div>
+</body>
+</html>

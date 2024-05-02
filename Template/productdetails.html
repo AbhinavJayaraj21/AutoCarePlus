@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'product_view.css' %}">
+</head>
+
+<body>
+<form method="POST">
+{% csrf_token %}
+<!-- content -->
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row gx-5">
+
+            <aside class="col-lg-6">
+                {% for image in datas %}
+                <div id="mainImageContainer" class="border rounded-4 mb-3 d-flex justify-content-center"
+                     style="height: 60%; width: auto;">
+                    <a id="mainImageLink" data-fslightbox="mygallery" class="rounded-4" target="_blank"
+                       data-type="image" href="#">
+                        <img id="mainImage" style="height: 100%; width: 100%; object-fit: contain;"
+                             class="rounded-4 fit" src="{{ image.accessory_image.url }}"/>
+                    </a>
+                </div>
+
+                <!-- Second div for thumbnails -->
+                <div class="d-flex justify-content-center mb-3" id="thumbnailContainer">
+                    <!-- Thumbnails will be generated dynamically -->
+                    <!-- Example thumbnail -->
+                    <a data-fslightbox="mygallery" style="border: transparent" class="border mx-1 rounded-2 item-thumb"
+                       href="#">
+                        <img width="50" height="60" class="thumbnail" src="{{ image.accessory_image.url }}"/>
+                    </a>
+                    <a data-fslightbox="mygallery" class="border mx-1 rounded-2 item-thumb" href="#">
+                        <img width="50" height="60" class="thumbnail" src="{{ image.accessory_image.url }}"/>
+                    </a>
+                    <a data-fslightbox="mygallery" class="border mx-1 rounded-2 item-thumb" href="#">
+                        <img width="50" height="60" class="thumbnail" src="{{ image.accessory_image.url }}"/>
+                    </a>
+                    <a data-fslightbox="mygallery" class="border mx-1 rounded-2 item-thumb" href="#">
+                        <img width="50" height="60" class="thumbnail" src="{{ image.accessory_image.url }}"/>
+                    </a>
+                    <!-- More thumbnails -->
+                </div>
+                {% endfor %}
+
+            </aside>
+
+            <main class="col-lg-6">
+                {% for x in data %}
+                <div class="ps-lg-3">
+
+                    <h4 class="title text-dark">
+                        {{ x.vehicle_accessory_name }}
+                    </h4>
+                    <p>
+                        {{x.vehicle_accessory_type}}
+                    </p>
+                </div>
+
+                <div class="mb-3">
+                    <span class="h5">₹{{ x.vehicle_accessory_price }}</span>
+                    <span class="text-muted"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt class="mb-0">Store Name</dt>
+                        <dd>{{ x.store_id }}</dd>
+                    </div>
+                </div>
+                <hr/>
+
+
+    {% csrf_token %}
+    <div class="row mb-4">
+
+        <div class="col-md-4 col-6">
+            <label class="mb-2">Quantity</label>
+            <select class="btn form-select border border-secondary" style="height: 35px;" name="quantity">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary shadow-0 me-3"><i class="me-1 fa fa-shopping-basket"></i> Add to cart </button>
+    <a href="{% url 'abuy' x.vehicle_accessory_id %}" class="btn btn-warning shadow-0">Buy now</a>
+      {% endfor %}
+
+
+            </main>
+        </div>
+    </div>
+</section>
+
+<!-- content -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const thumbnailLinks = document.querySelectorAll('.item-thumb');
+        const mainImage = document.getElementById('mainImage');
+
+        thumbnailLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const thumbnailSrc = this.querySelector('img').getAttribute('src');
+                mainImage.setAttribute('src', thumbnailSrc);
+            });
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-c3O+Hz3pLlA1Rpk3L1GikTnZN2UQ6CZbRTuk+7Aaa3kMDeeT+4i4BDA2RUqkuQbJ"
+        crossorigin="anonymous"></script>
+</form>
+</body>
+
+</html>
