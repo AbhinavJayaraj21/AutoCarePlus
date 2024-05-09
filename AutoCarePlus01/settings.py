@@ -92,9 +92,9 @@ DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.mysql',
          'NAME': 'AutoCare_db',
-         'USER': 'AutoCare_Plus',
-         'PASSWORD': 'Abhinav123',
-         'HOST': 'database-2.cjk2464q2dan.ap-southeast-2.rds.amazonaws.com',
+         'USER': 'admin',
+         'PASSWORD': '12345678',
+         'HOST': 'database-1.cjk2464q2dan.ap-southeast-2.rds.amazonaws.com',
          'PORT': '3306',
      }
   }
